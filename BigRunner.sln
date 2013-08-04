@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{0EAEC0EB-E294-4FD3-BF39-4CE9BC5FDC36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design", "design", "{ADFA5CF7-443B-44B9-B1E6-A87AAE7C22C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{742F10C9-6E58-4689-8972-5C14C7AA215D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD4B29CE-856D-476F-8350-F04651A7B5EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2C15C64B-F9B0-4D52-8590-1C87739B6B79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "release", "release", "{4C1CCB76-85FE-46FC-ABDD-DFA3B61805EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigRunner.ConsoleApp", "src\BigRunner.ConsoleApp\BigRunner.ConsoleApp.csproj", "{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigRunner.WinFormsApp", "src\BigRunner.WinFormsApp\BigRunner.WinFormsApp.csproj", "{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F88E3BF4-E405-4E70-B6D3-76ABC05F3EB7} = {AD4B29CE-856D-476F-8350-F04651A7B5EE}
+		{46C6E53B-D183-4843-87CF-D9ED1F9EE3D0} = {AD4B29CE-856D-476F-8350-F04651A7B5EE}
+	EndGlobalSection
+EndGlobal
