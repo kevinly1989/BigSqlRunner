@@ -1,4 +1,4 @@
-## Big Sql Script Runner ##
+## <a href="https://bigsqlrunner.codeplex.com/">Big Sql Script Runner</a> ##
 ============
 
 ### SUMMARY ###
@@ -12,6 +12,10 @@ You have to meet the following requirements before running the tool:
 <li>If you run the sql script file directly on your database server on your machine, please make sure that you must install Sql Server on it.</li>
 <li>Your t-sql script in the file have to be separated by GO batch.</li>
 </ul>
+
+<img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=bigsqlrunner&amp;DownloadId=713696" alt="">
+
+<img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=bigsqlrunner&amp;DownloadId=713703" alt="">
 
 ### MORE INFORMATION ###
 In order to know further details, please go the web address (https://bigsqlrunner.codeplex.com/) or contact me via blog (http://dotnetmagazines.wordpress.com/)
