@@ -50,11 +50,27 @@
 			Console.WriteLine("\t2. To terminate the console. Please press ESC key");
 		}
 
-		/// <summary>
-		/// Input connection string data
-		/// </summary>
-		/// <returns>Returns sql connection if okay, otherwise user will continue entering</returns>
-		private static SqlConnection InputConnectionStringData()
+
+        /// <summary>
+        /// Print argument help
+        /// </summary>
+        private static void PrintHelp()
+        {
+            /**********************************************
+				Make notes on console screen
+			**********************************************/
+            Console.WriteLine("Usage: BigRunner.ConsoleApp.exe -s -c <connection string> -l <output log file> [big script to be run.sql]");
+            Console.WriteLine("Command line arguments:");
+            Console.WriteLine("\t-s\tEnable silent mode. Will run the script and exit the application.");
+            Console.WriteLine("\t-c\tConnection string.");
+            Console.WriteLine("\t-l\tOutput log file.");
+        }
+
+        /// <summary>
+        /// Input connection string data
+        /// </summary>
+        /// <returns>Returns sql connection if okay, otherwise user will continue entering</returns>
+        private static SqlConnection InputConnectionStringData()
 		{
 			var sqlConnection = new SqlConnection();
 
@@ -320,6 +336,8 @@
 		/// <param name="args">The parameters from command line are passed into this method</param>
 		static void Main(string[] args)
 		{
+            ArgsParser argsParser = new ArgsParser(args);
+
 			/**********************************************
 				Initialize these necessary input parameters
 			**********************************************/
@@ -328,19 +346,42 @@
 			TextWriter logger = null;
 			StreamReader reader = null;
 
-			PrintNotes();
-			sqlConnection = InputConnectionStringData();
-			reader = InputBigSqlScriptFilePathData();
-			enabledLogToFile = InputEnabledLogToFileData();
-			if (enabledLogToFile)
-			{
-				logger = InputLogFilePathData();
-			}
+            // silent mode (works off of command line arguments)
+            if (argsParser.HasArg("s"))
+            {
+                try
+                {
+                    sqlConnection = new SqlConnection(argsParser.GetArg("c"));
+                    sqlConnection.Open();
+                    reader = new StreamReader(argsParser.GetArgs().FirstOrDefault());
+                    enabledLogToFile = argsParser.HasArg("l");
+                    if (enabledLogToFile)
+                    {
+                        logger = new StreamWriter(argsParser.GetArg("l"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+            }
+            else
+            {
+                PrintNotes();
 
-			/**********************************************
+                sqlConnection = InputConnectionStringData();
+                reader = InputBigSqlScriptFilePathData();
+                enabledLogToFile = InputEnabledLogToFileData();
+                if (enabledLogToFile)
+                {
+                    logger = InputLogFilePathData();
+                }
+            }
+
+            /**********************************************
 				Measure time of running sql script
 			**********************************************/
-			var stopWatch = new Stopwatch();
+            var stopWatch = new Stopwatch();
 			stopWatch.Start();
 
 			try
@@ -526,17 +567,20 @@
 				stopWatch.Stop();
 				Console.WriteLine(CalElapsedTime(stopWatch));
 
-				/**********************************************
+                /**********************************************
 					Wait until user enter ENTER key to exit
 				**********************************************/
-				while (true)
-				{
-					var consoleKey = Console.ReadKey().Key;
-					if (consoleKey == ConsoleKey.Escape)
-					{
-						break;
-					}
-				}
+                if (!argsParser.HasArg("s"))
+                {
+                    while (true)
+                    {
+                        var consoleKey = Console.ReadKey().Key;
+                        if (consoleKey == ConsoleKey.Escape)
+                        {
+                            break;
+                        }
+                    }
+                }
 			}
 		}
 	}
