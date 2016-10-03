@@ -360,9 +360,10 @@
                         logger = new StreamWriter(argsParser.GetArg("l"));
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-                    
+                    PrintHelp();
+                    return;
                 }
             }
             else
